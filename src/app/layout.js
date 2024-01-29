@@ -3,6 +3,7 @@ import './globals.css'
 import Header from './components/shared/Header'
 import Footer from './components/shared/Footer'
 import { Toaster } from 'react-hot-toast'
+import TanstackQueryProvider from './TanstackQueryProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +20,9 @@ export default function RootLayout({ children }) {
 
         <div className='min-h-screen'>
           <Toaster />
-          {children}
+          <TanstackQueryProvider>
+            {children}
+          </TanstackQueryProvider>
         </div>
         <Footer></Footer>
 
