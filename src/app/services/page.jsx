@@ -17,6 +17,7 @@ const Services = () => {
                     Every tool you need to work with PDFs in one place
                     Every tool you need to use PDFs, at your fingertips. All are 100% FREE and easy to use! Merge, split, compress, convert, rotate, unlock and watermark PDFs with just a few clicks.
                     <h3>Staging branch created</h3>
+                    <h3>Development branch created</h3>
                 </h1>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-2 my-4">
