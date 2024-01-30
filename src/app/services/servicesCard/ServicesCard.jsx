@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
+
 const ServicesCard = ({ name, feature, benefit, image }) => {
     return (
         <div className="card bg-base-100 border-2 hover:shadow-xl ">
