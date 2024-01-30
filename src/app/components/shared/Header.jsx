@@ -10,6 +10,10 @@ const Header = () => {
             pathName: "/"
         },
         {
+            name: "Services",
+            pathName: "/services"
+        },
+        {
             name: "About",
             pathName: "/about"
         },
@@ -17,10 +21,7 @@ const Header = () => {
             name: "Contact",
             pathName: "/contact"
         },
-        // {
-        //     name: "Dashboard",
-        //     pathName: "/dashboard"
-        // },
+
     ]
     return (
         <div className=" bg-base-100 shadow-xl z-50 sticky top-0 h-15">
@@ -54,9 +55,17 @@ const Header = () => {
                         <ul className="menu menu-horizontal px-1 space-x-4">
                             {
                                 navLink.map((nav) => (
-                                    <Link key={nav.name} href={nav.pathName}>
+                                    <Link
+                                        key={nav.name}
+                                        href={nav.pathName}
+                                        className={({ isActive }) =>
+                                            isActive
+                                                ? "   bg-black text-white font-semibold"
+                                                : "  "
+                                        }
+                                    >
                                         <li>
-                                            <button className='text-lg font-semibold'>{nav.name}</button>
+                                            <p className='text-lg font-semibold'>{nav.name}</p>
                                         </li>
                                     </Link >
                                 ))
@@ -65,7 +74,7 @@ const Header = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <a className="btn bg-[#FF5800] text-white font-bold">Login</a>
+                        <Link href={"/login"} className="btn  text-white  bg-slate-800 dark:text-white border-none rounded-full">Login</Link>
                     </div>
                 </div>
 
