@@ -1,8 +1,11 @@
+import { connectionToDb } from "@/lib/db"
+import { Service } from "@/lib/model/service"
+import mongoose from "mongoose"
+import { NextResponse } from "next/server"
+
 export async function GET() {
 
     await mongoose.connect(connectionToDb)
     const data = await Service.find()
-    return NextResponse.json({result:data})
-    const result = await Service.find()
-    return NextResponse.json(result)
+    return NextResponse.json(data)
 }
