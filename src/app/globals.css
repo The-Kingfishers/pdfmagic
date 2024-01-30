@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
+.banner1 {
+    background: linear-gradient(to right,
+            rgb(0 0 0 / 84%),
+            rgb(175 12 12 / 35%)),
+        url("https://images.unsplash.com/photo-1563906267088-b029e7101114?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWJvdXQlMjB1c3xlbnwwfHwwfHx8MA%3D%3D");
+    background-size: cover;
+}
