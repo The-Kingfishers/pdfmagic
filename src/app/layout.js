@@ -17,18 +17,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <AuthProvider>
-      <body className={inter.className}>
-        <Header></Header>
+        <body className={inter.className}>
+          <Header></Header>
 
-        <div className='min-h-screen'>
-          <Toaster />
-          <TanstackQueryProvider>
-            {children}
-          </TanstackQueryProvider>
-        </div>
-        <Footer></Footer>
+          <div className='min-h-screen max-w-7xl mx-auto'>
+            <Toaster />
+            <TanstackQueryProvider>
+              {children}
+            </TanstackQueryProvider>
+          </div>
+          <Footer></Footer>
 
-      </body>
+        </body>
       </AuthProvider>
     </html>
   )
