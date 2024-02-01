@@ -12,13 +12,13 @@ const Services = () => {
     console.log(services);
     const location = usePathname()
     return (
-        <div >
+        <div  >
             <h1 className={`text-center my-16 font-bold text-2xl ${location == "/" ? "hidden" : ""}`}>
                 Every tool you need to work with PDFs in one place
                 Every tool you need to use PDFs, at your fingertips. All are 100% FREE and easy to use! Merge, split, compress, convert, rotate, unlock and watermark PDFs with just a few clicks.
             </h1>
 
-            <div >
+            <div className="min-h-screen">
                 {
                     location === "/"
                         ? <div >

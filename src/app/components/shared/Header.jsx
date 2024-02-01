@@ -12,7 +12,7 @@ const Header = () => {
   const { data: session } = useSession();
   const navLink = [
     {
-      name: "home",
+      name: "Home",
       pathName: "/",
     },
     {
