@@ -4,6 +4,7 @@ import Header from './components/shared/Header'
 import Footer from './components/shared/Footer'
 import { Toaster } from 'react-hot-toast'
 import TanstackQueryProvider from './TanstackQueryProvider'
+import AuthProvider from './components/AuthProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,6 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <AuthProvider>
       <body className={inter.className}>
         <Header></Header>
 
@@ -27,6 +29,7 @@ export default function RootLayout({ children }) {
         <Footer></Footer>
 
       </body>
+      </AuthProvider>
     </html>
   )
 }

@@ -1,5 +1,4 @@
 "use client"
-import Container from "@/app/utils/Container";
 import logo from "@/assets/pdfLogo.png";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +6,7 @@ import Link from "next/link";
 const Footer = () => {
     return (
         <div className="bg-base-200 ">
-            <Container>
+            
                 <footer className="footer p-10  text-base-content ">
                     <aside>
                         <Link href={'/'} className="btn btn-ghost text-xl">
@@ -37,7 +36,7 @@ const Footer = () => {
                         <a className="link link-hover">Cookie policy</a>
                     </nav>
                 </footer>
-            </Container>
+            
         </div>
     );
 };
