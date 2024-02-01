@@ -1,20 +1,18 @@
 "use client"
 
-
 import useServices from "@/hooks/useServices";
-import Container from "../utils/Container";
 import ServicesCard from "./servicesCard/ServicesCard";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 
 const Services = () => {
+
     const [services] = useServices()
     console.log(services);
     const location = usePathname()
     return (
         <div >
-            <Container>
                 <h1 className={`text-center my-16 font-bold text-2xl ${location == "/" ? "hidden" : ""}`}>
                     Every tool you need to work with PDFs in one place
                     Every tool you need to use PDFs, at your fingertips. All are 100% FREE and easy to use! Merge, split, compress, convert, rotate, unlock and watermark PDFs with just a few clicks.
@@ -72,7 +70,7 @@ const Services = () => {
                             </div>
                     }
                 </div>
-            </Container>
+            
         </div>
     );
 };

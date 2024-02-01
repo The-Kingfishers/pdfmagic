@@ -37,7 +37,7 @@ const ContactUs = () => {
     return (
         <div>
             <h1 className="text-3xl lg:text-5xl text-center font-bold mt-12">Contact Us</h1>
-            <Container>
+            
                 <div className="mt-12 flex gap-12 items-center justify-center flex-col lg:flex-row">
                     <div className="flex-1 p-5 lg:p-0 ">
                         <Lottie animationData={contactUs} loop={true} width={320} height={400} />
@@ -78,7 +78,7 @@ const ContactUs = () => {
                     </div>
 
                 </div>
-            </Container>
+            
 
 
         </div>

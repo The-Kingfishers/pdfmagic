@@ -21,7 +21,7 @@ const CardDetails = () => {
     }
     return (
         <div>
-            <Container>
+            
                 <div onDrop={handelDrop}>
                     <h1 className='text-center font-bold text-xl my-5'>
                         Pdf to ppt Converter
@@ -60,7 +60,7 @@ const CardDetails = () => {
                         </h1>
                     </div>
                 </div>
-            </Container>
+            
         </div>
     );
 };
