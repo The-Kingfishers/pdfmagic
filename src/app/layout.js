@@ -3,6 +3,8 @@ import './globals.css'
 import Header from './components/shared/Header'
 import Footer from './components/shared/Footer'
 import { Toaster } from 'react-hot-toast'
+import TanstackQueryProvider from './TanstackQueryProvider'
+import AuthProvider from './components/AuthProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,16 +16,20 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Header></Header>
+      <AuthProvider>
+        <body className={inter.className}>
+          <Header></Header>
 
-        <div className='min-h-screen'>
-          <Toaster />
-          {children}
-        </div>
-        <Footer></Footer>
+          <div className=' max-w-7xl mx-auto'>
+            <Toaster />
+            <TanstackQueryProvider>
+              {children}
+            </TanstackQueryProvider>
+          </div>
+          <Footer></Footer>
 
-      </body>
+        </body>
+      </AuthProvider>
     </html>
   )
 }
