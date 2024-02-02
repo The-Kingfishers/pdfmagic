@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import loading from "../../../../public/loading.json"
 import Lottie from "lottie-react";
+import { useState } from "react";
 
 const CardDetails = ({params}) => {
   const axiosPublic = useAxiosPubic()
@@ -43,7 +44,7 @@ const CardDetails = ({params}) => {
   }
 })
 
-  if (isLoading) {
+if (isLoading) {
     return <Lottie animationData={loading} loop={true} width={10} height={10}/>
   }
 
@@ -56,7 +57,7 @@ const CardDetails = ({params}) => {
 
             <div >
                 <h1 className='text-center font-bold text-2xl my-10 uppercase'>
-                    {services.name}
+                    {service.name}
                 </h1>
                 <div
                     onDragOver={(e) => handelDragOver(e)}
