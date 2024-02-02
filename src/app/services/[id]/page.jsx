@@ -43,6 +43,14 @@ const CardDetails = ({params}) => {
   }
 })
 
+  if (isLoading) {
+    return <Lottie animationData={loading} loop={true} width={10} height={10}/>
+  }
+
+  if (isError) {
+    return <div>Error loading data </div>;
+  }
+
   return (
         <div className='mt-32'>
 
