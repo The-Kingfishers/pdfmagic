@@ -5,12 +5,22 @@ import { NextResponse } from "next/server";
 
 
 export const GET = async (req, res) => {
-    await mongoose.connect(connectionToDb)
-    const id = req.url.split("/services/")[1]
-    console.log("hello");
-    console.log(id);
-    const ObjectId = new mongoose.Types.ObjectId(id)
-    const result = await Service.findOne({ _id: ObjectId })
-    console.log("Result", result);
-    return NextResponse.json(result)
-}
+    try {
+        await mongoose.connect(connectionToDb);
+        const id = req.url.split("/services/")[1];
+        const ObjectId = new mongoose.Types.ObjectId(id);
+
+        const result = await Service.findOne({ _id: ObjectId });
+
+        if (!result) {
+            return NextResponse.error(`Service with id ${id} not found`, 404);
+        }
+
+        return NextResponse.json(result);
+    } catch (error) {
+        console.error("Error fetching service:", error);
+        return NextResponse.error("Internal Server Error", 500);
+    } finally {
+        mongoose.disconnect(); 
+    }
+};

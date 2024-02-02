@@ -7,9 +7,7 @@ const Converter = ({ File }) => {
             <div className="w-3/4">
                 ok
             </div>
-
-            <div className="w-1/4">
-                ok
+            <div className="w-1/4 ">
 
             </div>
         </div>
