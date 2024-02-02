@@ -1,21 +1,17 @@
-"use client"
-import Image from 'next/image';
-import { useParams } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+"use client";
+import useAxiosPubic from "@/hooks/useAxiosPubic";
+import { useQuery } from "@tanstack/react-query";
+import Image from "next/image";
+import loading from "../../../../public/loading.json"
+import Lottie from "lottie-react";
 
-const CardDetails = () => {
-    const { id } = useParams()
-    // console.log(id)
-    const [services, setServices] = useState([]);
-    const [DragOver, setDragOver] = useState(false)
-    useEffect(() => {
-        fetch(`/api/services/${id}`) // Fetch from the public directory directly
-            .then((res) => res.json())
-            .then((data) => setServices(data))
-            .catch((error) => console.error('Error fetching data:', error));
-    }, [id]);
-    // console.log(services)
-    // console.log(services.bgColor)
+const CardDetails = ({params}) => {
+  const axiosPublic = useAxiosPubic()
+  const id = params.id
+
+  const [services, setServices] = useState([]);
+  const [DragOver, setDragOver] = useState(false)
+
 
     const handelDragOver = (e) => {
         e.preventDefault();
@@ -37,9 +33,17 @@ const CardDetails = () => {
     const handelBrowser = (e) => {
         const value = e.target.files;
         console.log(value)
-
     }
-    return (
+
+  const { data: service = [],isLoading, isError, error} = useQuery({
+    queryKey: ['service', id],
+    queryFn: async () => {
+        const res = await axiosPublic.get(`/services/${id}`)
+        return res.data;
+  }
+})
+
+  return (
         <div className='mt-32'>
 
             <div >
@@ -78,7 +82,6 @@ const CardDetails = () => {
                                     </span>
                                 </label>
                             </h1>
-                        </div>
 
                     </div>
 
@@ -87,7 +90,9 @@ const CardDetails = () => {
             </div>
 
         </div>
-    );
+      </div>
+  );
 };
+
 
 export default CardDetails;
