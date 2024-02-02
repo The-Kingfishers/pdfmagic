@@ -1,14 +1,15 @@
 import Image from 'next/image';
 import React from 'react';
 
-const ServicesCard = ({ name, feature, benefit, image }) => {
+
+const ServicesCard = ({ location, name, feature, benefit, image }) => {
     return (
-        <div className="card bg-base-100 border-2 hover:shadow-xl ">
+        <div className={`card bg-base-100 border-2 hover:shadow-2xl  h-[350px] ${location === '/' ? "rounded-none h-[400px]" : ""}`}>
             <div className='flex justify-center items-center  w-full'>
                 <Image
                     src={image}
-                    width={300}
-                    height={50}
+                    width={400}
+                    height={60}
                     alt="img">
                 </Image>
             </div>
