@@ -1,3 +1,11 @@
-export { default } from 'next-auth/middleware'
+import { withAuth } from 'next-auth/middleware'
 
-export const config = { matcher: ['/services/:id'] }
+
+export default withAuth(
+    function middleware(req) {
+        console.log(req.nextUrl.pathname);
+        console.log(req.nextUrl.token.role);
+    }
+)
+
+export const config = { matcher: ['/servi'] }
