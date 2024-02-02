@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
         <body className={inter.className}>
           <Header></Header>
 
-          <div className='min-h-screen max-w-7xl mx-auto'>
+          <div className=' max-w-7xl mx-auto'>
             <Toaster />
             <TanstackQueryProvider>
               {children}
