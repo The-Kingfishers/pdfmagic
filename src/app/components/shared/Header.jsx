@@ -74,9 +74,9 @@ const Header = () => {
                 key={nav.name}
                 href={nav.pathName}
                 className={({ isActive }) =>
-                  isActive ? "   bg-black text-white font-semibold" : "  "
+                  isActive ? " bg-black text-white font-semibold" : "  "
                 }
-              >
+              > 
                 <li>
                   <p className="text-lg font-semibold">{nav.name}</p>
                 </li>
@@ -85,12 +85,13 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          {/* <Link href={"/login"} className="btn  text-white  bg-slate-800 dark:text-white border-none rounded-full">Login</Link> */}
-          {session ? (
+
+          <Link href={"/login"} className="btn  text-white  bg-slate-800 dark:text-white border-none rounded-full">Login</Link>
+          {/* {session ? (
             <Link className="btn  text-white  bg-slate-800 dark:text-white border-none rounded-full" href="/api/auth/signout?callbackUrl=/">LogOut</Link>
           ) : (
             <Link className="btn  text-white  bg-slate-800 dark:text-white border-none rounded-full" href="/api/auth/signin">Login</Link>
-          )}
+          )} */}
         </div>
       </div>
     </div>
