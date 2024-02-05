@@ -5,7 +5,6 @@ import logo from "@/assets/pdfLogo.png";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
-import { options } from "@/app/api/auth/[...nextauth]/options";
 
 const Header = () => {
   // const session = await getServerSession(options)
@@ -76,7 +75,7 @@ const Header = () => {
                 className={({ isActive }) =>
                   isActive ? " bg-black text-white font-semibold" : "  "
                 }
-              > 
+              >
                 <li>
                   <p className="text-lg font-semibold">{nav.name}</p>
                 </li>
@@ -87,11 +86,7 @@ const Header = () => {
         <div className="navbar-end">
 
           <Link href={"/login"} className="btn  text-white  bg-slate-800 dark:text-white border-none rounded-full">Login</Link>
-          {/* {session ? (
-            <Link className="btn  text-white  bg-slate-800 dark:text-white border-none rounded-full" href="/api/auth/signout?callbackUrl=/">LogOut</Link>
-          ) : (
-            <Link className="btn  text-white  bg-slate-800 dark:text-white border-none rounded-full" href="/api/auth/signin">Login</Link>
-          )} */}
+
         </div>
       </div>
     </div>
