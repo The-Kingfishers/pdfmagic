@@ -1,5 +1,5 @@
 "use client"
-import Converter from '@/app/components/ConverterPage/converter';
+import Converter from '@/app/components/ConverterPage/Converter';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';

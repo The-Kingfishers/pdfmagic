@@ -1,11 +1,15 @@
 import { usePathname } from "next/navigation";
 
 const Converter = ({ File }) => {
-    console.log(File)
+    const fileReader = new FileReader()
+    console.log(fileReader.result)
+    // console.log(File)
     return (
         <div className="flex min-h-screen">
             <div className="w-3/4">
-                ok
+                <div className="flex justify-center items-center">
+                    man
+                </div>
             </div>
             <div className="w-1/4 ">
 
