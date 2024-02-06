@@ -12,7 +12,7 @@ const CardDetails = () => {
     const [Drop, setDrop] = useState(false)
     const [File, setFile] = useState({})
     useEffect(() => {
-        fetch(`/api/services/${id}`) // Fetch from the public directory directly
+        fetch(`https://pdfmagic-bice.vercel.app/api/services/${id}`) // Fetch from the public directory directly
             .then((res) => res.json())
             .then((data) => setServices(data))
             .catch((error) => console.error('Error fetching data:', error));
