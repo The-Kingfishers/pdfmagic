@@ -32,7 +32,7 @@ const CardDetails = () => {
         e.preventDefault();
         setDragOver("false")
         setDrop("true")
-        const file = e.dataTransfer.files[0];
+        const file = e.dataTransfer.files;
         setFile(file)
 
     }
@@ -80,7 +80,7 @@ const CardDetails = () => {
                                                 type="file"
                                                 className=" hidden"
                                             />
-                                            <span className='text-bold text-xl mx-2 text-blue-700'>
+                                            <span className='text-bold text-xl mx-2 text-blue-700 cursor-pointer'>
                                                 Browser
                                             </span>
                                         </label>
