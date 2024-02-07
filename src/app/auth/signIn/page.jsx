@@ -3,13 +3,18 @@ import { FaGoogle } from "react-icons/fa";
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { signIn } from "next-auth/react";
 
 const login = () => {
-    const handelForm = () => {
 
+
+    const handleForm = () => {
+        
     }
-    const googleClick = () => {
+    const handleGoogleLogin = async() => {
+     const result =   await signIn("google", {callbackUrl: "http://localhost:3000"})
 
+    
     }
     return (
         <div className="hero  min-h-screen  ">
@@ -26,7 +31,7 @@ const login = () => {
                 <div className="hero-content flex-col ">
 
                     <div className=" rounded-none flex-shrink-0 w-full    ">
-                        <form onSubmit={handelForm} className="card-body w-80 md:w-[400px]  lg:w-[500px]">
+                        <form onSubmit={handleForm} className="card-body w-80 md:w-[400px]  lg:w-[500px]">
                             <h1 className="text-5xl font-bold  ">Login</h1>
 
                             <div className="form-control">
@@ -67,8 +72,8 @@ const login = () => {
                                     {/* <h1 className="text-red-500">{error}</h1> */}
                                 </div>
                                 <div className="divider">OR</div>
-                                <div onClick={googleClick} className=" border-2 border-black p-4 rounded-xl mt-5">
-                                    <p className="flex justify-center items-center gap-3 text-xl font-semibold ">
+                                <div onClick={handleGoogleLogin} className=" border-2 border-black p-4 rounded-xl mt-5">
+                                    <p className="flex hover:cursor-pointer justify-center items-center gap-3 text-xl font-semibold ">
                                         <FaGoogle /> Continue With Google</p>
                                 </div>
                             </div>

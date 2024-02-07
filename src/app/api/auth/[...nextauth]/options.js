@@ -42,6 +42,9 @@ export const options = {
     }),
 
   ],
+  pages: {
+    signIn: "/auth/signIn",
+  },
   callbacks: {
     async jwt({token, user }) {
       if(user) token.role = user.role
