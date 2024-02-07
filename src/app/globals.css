@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    padding-left: 1px;
+    padding-right: 1px;
+    box-sizing: border-box;
+}
+
 .banner1 {
     background: linear-gradient(to right,
             rgb(0 0 0 / 84%),

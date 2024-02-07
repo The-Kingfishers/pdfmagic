@@ -5,14 +5,13 @@ import logo from "@/assets/pdfLogo.png";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
-import { options } from "@/app/api/auth/[...nextauth]/options";
 
 const Header = () => {
   // const session = await getServerSession(options)
   const { data: session } = useSession();
   const navLink = [
     {
-      name: "home",
+      name: "Home",
       pathName: "/",
     },
     {
@@ -76,7 +75,7 @@ const Header = () => {
                 className={({ isActive }) =>
                   isActive ? " bg-black text-white font-semibold" : "  "
                 }
-              > 
+              >
                 <li>
                   <p className="text-lg font-semibold">{nav.name}</p>
                 </li>
