@@ -1,7 +1,10 @@
+import { getServerSession } from "next-auth";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import React from "react";
-
+import { options } from "../api/auth/[...nextauth]/options";
 const AboutUsPage = () => {
+  const session = getServerSession(options)
   const team = [
     {
       id: 1,
@@ -49,6 +52,7 @@ const AboutUsPage = () => {
         </h2>
         <h3 className="md:text-3xl text-xl text-center font-medium mt-4 mb-10 text-customOrange">
           Our Story
+          
         </h3>
 
         <p className="text-xl text-center">
