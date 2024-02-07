@@ -2,11 +2,40 @@
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 
-const login = () => {
-  const handleForm = () => {};
+const LoginPage = () => {
+  const [formData, setFormData] = useState({});
+    const [errorMessage, setErrorMessage] = useState("");
+  const handleChange = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await signIn("credentials", {
+      email: formData.email,
+      password: formData.password,
+      callbackUrl: "/", // Redirect to home page after sign-in
+    });
+    await Swal.fire({
+      position: "top-center",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+
+    // else {
+    //   router.refresh();
+    //   router.push("/");
+    // }
+  };
   const handleGoogleLogin = async () => {
     await signIn("google", {
       callbackUrl: "http://localhost:3000",
@@ -31,21 +60,22 @@ const login = () => {
         <div className="hero-content flex-col ">
           <div className=" rounded-none flex-shrink-0 w-full    ">
             <form
-              onSubmit={handleForm}
+              onSubmit={handleSubmit}
               className="card-body w-80 md:w-[400px]  lg:w-[500px]"
             >
               <h1 className="text-5xl font-bold  ">Login</h1>
-
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text dark:text-white">Email</span>
+                  <span className="label-text dark:text-white">email</span>
                 </label>
                 <input
                   type="email"
-                  placeholder="email"
                   name="email"
+                  id="email"
+                  onChange={handleChange}
+                  required={true}
                   className="input  input-bordered rounded-none"
-                  required
+                  value={formData.email}
                 />
               </div>
               <div className="form-control">
@@ -55,16 +85,14 @@ const login = () => {
                 <input
                   type="password"
                   name="password"
-                  placeholder="password"
-                  className="input input-bordered rounded-none"
-                  required
+                  id="password"
+                  onChange={handleChange}
+                  required={true}
+                  className="input  input-bordered rounded-none"
+                  value={formData.password}
                 />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
               </div>
+              
               <div className="form-control ">
                 <button className="btn  text-white  bg-slate-800 dark:text-white border-none rounded-none">
                   Login
@@ -106,4 +134,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default LoginPage;

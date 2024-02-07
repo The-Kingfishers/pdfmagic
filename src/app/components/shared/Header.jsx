@@ -85,6 +85,7 @@ const Header = () => {
         </div>
         <div className="navbar-end">
 
+
            {session ? (
             <Link className="btn  text-white  bg-slate-800 dark:text-white border-none rounded-full" href="/api/auth/signout?callbackUrl=/">LogOut</Link>
           ) : (
