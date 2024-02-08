@@ -101,7 +101,6 @@ const Header = () => {
         </div>
         <div className="navbar-end">
 
-          <Link href={"/login"} className="btn  text-white  bg-slate-800 dark:text-white border-none rounded-full">Login</Link>
           <div className="text-3xl dark:text-white hover:cursor-pointer px-3">
             {
               theme === "dark"
@@ -110,6 +109,11 @@ const Header = () => {
             }
           </div>
 
+          {session ? (
+            <Link className="btn  text-white  bg-slate-800 dark:text-white border-none rounded-full" href="/api/auth/signout?callbackUrl=/">LogOut</Link>
+          ) : (
+            <Link className="btn  text-white  bg-slate-800 dark:text-white border-none rounded-full" href="/api/auth/signin">Login</Link>
+          )}
         </div>
       </div>
     </div>
