@@ -63,7 +63,7 @@ const LoginPage = () => {
               onSubmit={handleSubmit}
               className="card-body w-80 md:w-[400px]  lg:w-[500px]"
             >
-              <h1 className="text-5xl font-bold  ">Login</h1>
+              <h1 className="text-5xl font-bold">Login</h1>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text dark:text-white">email</span>
