@@ -5,10 +5,26 @@ import logo from "@/assets/pdfLogo.png";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
-
+import { CiDark } from "react-icons/ci";
+import { MdSunny } from "react-icons/md";
+import { useEffect, useState } from "react";
 const Header = () => {
   // const session = await getServerSession(options)
   const { data: session } = useSession();
+  const [theme, setTheme] = useState("dark");
+  useEffect(() => {
+    if (theme == "light") {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+
+    }
+  }, [theme])
+
+  const handelClick = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
   const navLink = [
     {
       name: "Home",
@@ -28,7 +44,7 @@ const Header = () => {
     },
   ];
   return (
-    <div className=" bg-base-100 shadow-xl z-50 sticky top-0 h-15">
+    <div className="dark:bg-black dark:text-white bg-base-100 shadow-xl z-50 sticky top-0 h-15">
       <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
@@ -85,8 +101,19 @@ const Header = () => {
         </div>
         <div className="navbar-end">
 
-          <Link href={"/login"} className="btn  text-white  bg-slate-800 dark:text-white border-none rounded-full">Login</Link>
+          <div className="text-3xl dark:text-white hover:cursor-pointer px-3">
+            {
+              theme === "dark"
+                ? <CiDark onClick={handelClick}></CiDark>
+                : <MdSunny onClick={handelClick}></MdSunny>
+            }
+          </div>
 
+          {session ? (
+            <Link className="btn  text-white  bg-slate-800 dark:text-white border-none rounded-full" href="/api/auth/signout?callbackUrl=/">LogOut</Link>
+          ) : (
+            <Link className="btn  text-white  bg-slate-800 dark:text-white border-none rounded-full" href="/api/auth/signin">Login</Link>
+          )}
         </div>
       </div>
     </div>

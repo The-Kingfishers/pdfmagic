@@ -42,7 +42,7 @@ const ContactUs = () => {
                     <Lottie animationData={contactUs} loop={true} width={320} height={400} />
 
                 </div>
-                <div className="my-4 mx-auto max-w-xl bg-white font-[sans-serif] flex-1 p-5 lg:p-0">
+                <div className="my-4 mx-auto max-w-xl font-[sans-serif] flex-1 p-5 lg:p-0">
                     <form className="mt-0 lg:mt-8 space-y-4" id="contactForm" ref={form} onSubmit={sendEmail}>
                         <input
                             type="text"
