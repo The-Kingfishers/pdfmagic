@@ -4,7 +4,7 @@ import React from 'react';
 
 const ServicesCard = ({ location, name, feature, benefit, image }) => {
     return (
-        <div className={`card bg-base-100 border-2 hover:shadow-2xl  h-[350px] ${location === '/' ? "rounded-lg h-[400px]" : ""}`}>
+        <div className={`card  border-2 hover:shadow-2xl  h-[350px] ${location === '/' ? "rounded-lg h-[400px]" : ""}`}>
             <div className='flex justify-center items-center  w-full'>
                 <Image
                     src={image}

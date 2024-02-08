@@ -7,7 +7,7 @@ import { signIn } from "next-auth/react";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({});
-    const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const handleChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
@@ -92,7 +92,7 @@ const LoginPage = () => {
                   value={formData.password}
                 />
               </div>
-              
+
               <div className="form-control ">
                 <button className="btn  text-white  bg-slate-800 dark:text-white border-none rounded-none">
                   Login
@@ -111,7 +111,7 @@ const LoginPage = () => {
                 <div className="divider">OR</div>
                 <div
                   onClick={handleGoogleLogin}
-                  className=" border-2 border-black p-4 rounded-xl mt-5"
+                  className=" border-2 border-black p-4 rounded-xl mt-5 dark:border-white"
                 >
                   <p className="flex hover:cursor-pointer justify-center items-center gap-3 text-xl font-semibold ">
                     <FaGoogle /> Continue With Google
@@ -119,9 +119,9 @@ const LoginPage = () => {
                 </div>
                 <div
                   onClick={handleGithubLogin}
-                  className=" border-2 border-black p-4 rounded-xl mt-5"
+                  className=" border-2 border-black p-4 rounded-xl mt-5 dark:border-white"
                 >
-                  <p className="flex hover:cursor-pointer justify-center items-center gap-3 text-xl font-semibold ">
+                  <p className="flex hover:cursor-pointer justify-center items-center gap-3 text-xl font-semibold  ">
                     <FaGithub /> Continue With Github
                   </p>
                 </div>
