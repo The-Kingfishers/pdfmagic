@@ -67,7 +67,7 @@ const login = () => {
                                     {/* <h1 className="text-red-500">{error}</h1> */}
                                 </div>
                                 <div className="divider">OR</div>
-                                <div onClick={googleClick} className=" border-2 border-black p-4 rounded-xl mt-5">
+                                <div onClick={googleClick} className=" border-2 border-black p-4 rounded-xl mt-5 dark:border-white">
                                     <p className="flex justify-center items-center gap-3 text-xl font-semibold ">
                                         <FaGoogle /> Continue With Google</p>
                                 </div>

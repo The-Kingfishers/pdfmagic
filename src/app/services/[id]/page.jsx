@@ -44,12 +44,12 @@ const CardDetails = () => {
     }
     // console.log(File)
     return (
-        <div >
+        <div className=''>
             {
                 Drop == "true" ?
                     <Converter File={File}></Converter>
                     :
-                    <div className='my-10 md:my-40'>
+                    <div className=' flex justify-center items-center h-[90vh]'>
                         <h1 className='text-center font-bold text-2xl my-10 uppercase'>
                             {services.name}
                         </h1>
