@@ -10,9 +10,9 @@ const Footer = () => {
     console.log(name)
     console.log(slide)
     return (
-        <div className={`bg-base-200 ${slide ? "hidden" : ""} `}>
+        <div className={`bg-base-200 dark:bg-black  ${slide ? "hidden" : ""} `}>
 
-            <footer className="footer p-10  text-base-content ">
+            <footer className="footer p-10  text-base-content dark:text-white">
                 <aside>
                     <Link href={'/'} className="btn btn-ghost text-xl">
                         <Image height={75} width={75} src={logo} alt='logo'></Image>
