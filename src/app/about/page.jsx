@@ -52,7 +52,7 @@ const AboutUsPage = () => {
         </h2>
         <h3 className="md:text-3xl text-xl text-center font-medium mt-4 mb-10 text-customOrange">
           Our Story
-          
+
         </h3>
 
         <p className="text-xl text-center">
