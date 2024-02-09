@@ -71,7 +71,7 @@ const Header = () => {
             >
               {navLink.map((nav) => (
                 <Link key={nav.name} href={nav.pathName}>
-                  <li>
+                  <li className="dark:bg-black">
                     <button className="text-xl font-bold">{nav.name}</button>
                   </li>
                 </Link>
@@ -121,13 +121,13 @@ const Header = () => {
         </div>
       </div>
       <ul tabIndex={0} className="menu menu-sm dropdown-content gap-2 font-semibold mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-        <li>
+        <li className="dark:bg-black">
           <a className="justify-between">
             Profile
           </a>
         </li>
-        <li><Link href="/dashboard">Dashboard</Link></li>
-        <li><Link className="" href="/api/auth/signout?callbackUrl=/">LogOut</Link></li>
+        <li className="dark:bg-black"><Link href="/dashboard">Dashboard</Link></li>
+        <li className="dark:bg-black"><Link className="" href="/api/auth/signout?callbackUrl=/">LogOut</Link></li>
       </ul>
     </div>
           ) : (
