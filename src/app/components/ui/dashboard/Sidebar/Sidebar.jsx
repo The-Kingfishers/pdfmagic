@@ -7,6 +7,7 @@ import profileImg from "../../../../../../public/account_circle_FILL0_wght400_GR
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { FaSignOutAlt, FaUser } from 'react-icons/fa';
 
 const menuItems = [
     {
@@ -15,7 +16,7 @@ const menuItems = [
             {
                 title: "Profile",
                 path: "/dashboard/profile",
-                icon: <MdSupervisedUserCircle />
+                icon: <FaUser />
             },
             {
                 title: "Settings",
@@ -58,11 +59,34 @@ const Sidebar = () => {
                 <Image className='bg-white rounded-full'  src={profileImg} width={50} alt='Profile Avatar'></Image>
                 <div className='flex flex-col'>
                 <span className='text-xl font-semibold'>{session?.user.name}</span>
-                <span>{session?.user.role}</span>
+                <span>{session?.user.role === "Unverified email" ? "Registered User" : session?.user.role}</span>
                 </div>
             </div>
                 <ul>
-                {menuItems.map(category => (
+                {session?.user.role === "Admin" && (
+                    <>
+                    <li>
+                        <span className='text-3xl'>Admin</span>
+                        <Link href="/dashboard/profile/admin" className={`flex items-center ${pathName === "dashboard/admin" && "bg-[#2e374a]"} rounded-lg p-5 hover:bg-[#2e374a] text-white text-2xl`}> 
+                            <FaUser />
+                             Profile
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/dashboard/admin" className={`flex items-center ${pathName === "dashboard/admin" && "bg-[#2e374a]"} rounded-lg p-5 hover:bg-[#2e374a] text-white text-2xl`}> 
+                            <MdDashboard />
+                             Dashboard
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/dashboard/users" className={`flex items-center ${pathName === "dashboard/users" && "bg-[#2e374a]"} rounded-lg p-5 hover:bg-[#2e374a] text-white text-2xl`}> 
+                            <MdPeople />
+                            Users
+                        </Link>
+                    </li>
+                    </>
+                )}
+                {session?.user.role === "Admin" || menuItems.map(category => (
                     <li key={category.title}>
                         <span className='text-3xl'>{category.title}</span>
                         {category.list.map(item => (
@@ -70,15 +94,10 @@ const Sidebar = () => {
                         ))}
                     </li>
                    ))}
-{session?.user.role === "Admin" && (
-                    <li>
-                        <span className='text-3xl'>Admin</span>
-                        <Link href="/dashboard/users" className={`flex items-center ${pathName === "dashboard/user" && "bg-[#2e374a]"} rounded-lg p-5 hover:bg-[#2e374a] text-white text-2xl`}> 
-                            <MdPeople />
-                            Users
-                        </Link>
-                    </li>
-                )}
+
+                <li className='flex items-center text-2xl pl-4 rounded-lg h-20 hover:bg-[#2e374a]'>
+                    <Link className='flex' href={"/api/auth/signout?callbackUrl=/"}><span><FaSignOutAlt /></span> Log Out</Link>
+                </li>
                     </ul>
         </div>
     );

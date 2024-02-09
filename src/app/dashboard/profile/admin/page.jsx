@@ -1,10 +1,10 @@
 "use client"
-import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import avatar from "../../../../public/account_circle_FILL0_wght400_GRAD0_opsz24.svg"
-const ProfilePage = () => {
-    const {data: session} = useSession()
-    // console.log(session);
+import React from 'react';
+import avatar from "../../../../../public/account_circle_FILL0_wght400_GRAD0_opsz24.svg"
+import { useSession } from 'next-auth/react';
+const AdminProfile = () => {
+    const {data : session} = useSession()
     return (
         <div className='text-black w-11/12 mx-auto mt-10'>
             <div className=''>
@@ -18,4 +18,4 @@ const ProfilePage = () => {
     );
 };
 
-export default ProfilePage;
+export default AdminProfile;
