@@ -21,7 +21,7 @@ const Testimonial = () => {
         .catch((error) => console.error('Error fetching data:', error));
     }, []);
     
-    console.log(testimonials);
+    // console.log(testimonials);
     
 
     return (
@@ -57,7 +57,6 @@ const Testimonial = () => {
                                 prevEl: '.custom-swiper-button-prev',
                                 nextEl: '.custom-swiper-button-next',
                             }}
-                            onSlideChange={() => console.log('slide change')}
                             onSwiper={(swiper) => console.log(swiper)}
                         >
                             {testimonials?.map((testimonial) => (

@@ -105,8 +105,8 @@ const Header = () => {
           <div className="text-3xl dark:text-white hover:cursor-pointer px-3">
             {
               theme === "dark"
-                ? <CiDark onClick={handelClick}></CiDark>
-                : <MdSunny onClick={handelClick}></MdSunny>
+                ? <CiDark className="hover:bg-slate-400 hover:rounded-full" onClick={handelClick}></CiDark>
+                : <MdSunny className="hover:bg-slate-400 hover:rounded-full" onClick={handelClick}></MdSunny>
             }
           </div>
           
@@ -114,7 +114,7 @@ const Header = () => {
             // 
             <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
+        <div className="w-10 rounded-full dark:bg-white">
           <Image height={75} width={75} alt="avatar" src={avatar} >
             
           </Image>
