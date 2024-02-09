@@ -54,7 +54,7 @@ const Sidebar = () => {
     const pathName = usePathname()
     // console.log(pathName);
     return (
-        <div className='sticky  mt-10'>
+        <div className='sticky  mt-10 '>
             <div className='flex align-middle mb-3 gap-6'>
                 <Image className='bg-white rounded-full'  src={profileImg} width={50} alt='Profile Avatar'></Image>
                 <div className='flex flex-col'>
@@ -67,7 +67,7 @@ const Sidebar = () => {
                     <>
                     <li>
                         <span className='text-3xl'>Admin</span>
-                        <Link href="/dashboard/profile/admin" className={`flex items-center ${pathName === "dashboard/admin" && "bg-[#2e374a]"} rounded-lg p-5 hover:bg-[#2e374a] text-white text-2xl`}> 
+                        <Link href="/dashboard/profile/admin" className={`flex  items-center ${pathName === "dashboard/admin" && "bg-[#2e374a]"} rounded-lg p-5 hover:bg-[#2e374a] text-white text-2xl`}> 
                             <FaUser />
                              Profile
                         </Link>
