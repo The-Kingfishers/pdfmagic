@@ -55,7 +55,7 @@ const Sidebar = () => {
     return (
         <div className='sticky  mt-10'>
             <div className='flex align-middle mb-3 gap-6'>
-                <Image className='bg-white'  src={profileImg} width={50} alt='Profile Avatar'></Image>
+                <Image className='bg-white rounded-full'  src={profileImg} width={50} alt='Profile Avatar'></Image>
                 <div className='flex flex-col'>
                 <span className='text-xl font-semibold'>{session?.user.name}</span>
                 <span>{session?.user.role}</span>
@@ -73,7 +73,7 @@ const Sidebar = () => {
 {session?.user.role === "Admin" && (
                     <li>
                         <span className='text-3xl'>Admin</span>
-                        <Link href="/dashboard/users" className={`flex items-center ${pathName === "dashboard/user" && "bg-[#2e374a]"} p-5 hover:bg-[#2e374a] text-white text-2xl`}> 
+                        <Link href="/dashboard/users" className={`flex items-center ${pathName === "dashboard/user" && "bg-[#2e374a]"} rounded-lg p-5 hover:bg-[#2e374a] text-white text-2xl`}> 
                             <MdPeople />
                             Users
                         </Link>

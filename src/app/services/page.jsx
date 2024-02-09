@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 const Services = () => {
   const [services] = useServices();
-  console.log(services);
+  // console.log(services);
   const location = usePathname();
   return (
     <div>
