@@ -5,16 +5,16 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 
 const Register = () => {
-    const [formData, setFormData] = useState({});
-    const [errorMessage, setErrorMessage] = useState("");
-    const handleChange = (e) => {
-        const value = e.target.value;
-        const name = e.target.name;
-        setFormData((prevState) => ({
-          ...prevState,
-          [name]: value,
-        }));
-      };
+  const [formData, setFormData] = useState({});
+  const [errorMessage, setErrorMessage] = useState("");
+  const handleChange = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await fetch("/api/users", {
@@ -22,9 +22,9 @@ const Register = () => {
       body: JSON.stringify({ formData }),
       "content-type": "application/json",
     });
-    
+
     // signIn("credentials")
-     if (!res.ok) {
+    if (!res.ok) {
       const response = await res.json();
       setErrorMessage(response.message);
     }
@@ -34,13 +34,13 @@ const Register = () => {
       callbackUrl: "/", // Redirect to home page after sign-in
     });
     await Swal.fire({
-        position: "top-center",
-        icon: "success",
-        title: "Your work has been saved",
-        showConfirmButton: false,
-        timer: 1500
-      });
-    
+      position: "top-center",
+      icon: "success",
+      title: "User Registered",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+
     // else {
     //   router.refresh();
     //   router.push("/");
@@ -72,22 +72,6 @@ const Register = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text dark:text-white">Email</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="email"
-                    id="email"
-                    onChange={handleChange}
-                    required={true}
-                    className="input  input-bordered rounded-none"
-                    value={formData.email}
-                  />
-                </div>
-              </div>
-              <div className="lg:w-1/2">
-                <div className="form-control">
-                  <label className="label">
                     <span className="label-text dark:text-white">Password</span>
                   </label>
                   <input
@@ -100,6 +84,22 @@ const Register = () => {
                     value={formData.password}
                   />
                 </div>
+              </div>
+              <div className="lg:w-1/2">
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text dark:text-white">Email</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="email"
+                    id="email"
+                    onChange={handleChange}
+                    required={true}
+                    className="input  input-bordered rounded-none"
+                    value={formData.email}
+                  />
+                </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text dark:text-white">imgUrl</span>
@@ -109,7 +109,6 @@ const Register = () => {
                     placeholder="imgUrl"
                     name="imgUrl"
                     className="file-input  input-bordered rounded-none "
-                    
                   />
                 </div>
               </div>
@@ -128,7 +127,7 @@ const Register = () => {
                 </p>
               </div>
               <div className="text-center">
-              <p className="text-red-500">{errorMessage}</p>
+                <p className="text-red-500">{errorMessage}</p>
               </div>
             </div>
           </form>
