@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
+import Swal from "sweetalert2";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({});

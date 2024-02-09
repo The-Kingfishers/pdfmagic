@@ -4,7 +4,7 @@ import Sidebar from '../components/ui/dashboard/Sidebar/Sidebar';
 
 const DashboardLayout = ({children}) => {
     return (
-        <div className='grid max-w-7xl mx-auto min-h-screen grid-cols-5 text-white '>
+        <div className='grid max-w-7xl min-h-screen mx-auto sticky grid-cols-5 text-white '>
             {/* container */}
             <div className='col-span-1 bg-[#182237]' >
                 {/* menu */}

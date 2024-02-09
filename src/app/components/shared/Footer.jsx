@@ -7,8 +7,8 @@ import { usePathname } from "next/navigation";
 const Footer = () => {
     const name = usePathname();
     const slide = name.split("/services/")[1]
-    console.log(name)
-    console.log(slide)
+    // console.log(name)
+    // console.log(slide)
     return (
         <div className={`bg-base-200 dark:bg-black  ${slide ? "hidden" : ""} `}>
 
