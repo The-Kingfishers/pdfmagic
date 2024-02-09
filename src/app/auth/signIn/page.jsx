@@ -18,18 +18,22 @@ const LoginPage = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await signIn("credentials", {
-      email: formData.email,
-      password: formData.password,
-      callbackUrl: "/", // Redirect to home page after sign-in
-    });
-    await Swal.fire({
-      position: "top-center",
-      icon: "success",
-      title: "Your work has been saved",
-      showConfirmButton: false,
-      timer: 1500,
-    });
+    try {
+      await signIn("credentials", {
+        email: formData.email,
+        password: formData.password,
+        callbackUrl: "/", // Redirect to home page after sign-in
+      });
+      await Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "User Logged in Successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    } catch (error) {
+      setErrorMessage(error)
+    }
 
     // else {
     //   router.refresh();
@@ -38,13 +42,27 @@ const LoginPage = () => {
   };
   const handleGoogleLogin = async () => {
     await signIn("google", {
-      callbackUrl: "http://localhost:3000",
+      callbackUrl: "/",
     });
+    await Swal.fire({
+      position: "top-center",
+      icon: "success",
+      title: "User Logged in Successfully",
+      showConfirmButton: false,
+      timer: 1500,
+    })
   };
   const handleGithubLogin = async () => {
     await signIn("github", {
-      callbackUrl: "http://localhost:3000",
+      callbackUrl: "/",
     });
+    await Swal.fire({
+      position: "top-center",
+      icon: "success",
+      title: "User Logged in Successfully",
+      showConfirmButton: false,
+      timer: 1500,
+    })
   };
   return (
     <div className="hero  min-h-screen  ">
@@ -124,6 +142,7 @@ const LoginPage = () => {
                   <p className="flex hover:cursor-pointer justify-center items-center gap-3 text-xl font-semibold  ">
                     <FaGithub /> Continue With Github
                   </p>
+                  {errorMessage}
                 </div>
               </div>
             </form>
