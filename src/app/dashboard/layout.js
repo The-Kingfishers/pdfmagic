@@ -10,7 +10,7 @@ const DashboardLayout = ({children}) => {
                 {/* menu */}
             <Sidebar />
             </div>
-            <div className='content col-span-4'>
+            <div className='content dark:text-white col-span-4'>
                 <DashNav />
                 {children}
             </div>
