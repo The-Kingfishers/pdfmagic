@@ -1,40 +1,35 @@
 "use client";
 import Converter from "@/app/components/ConverterPage/Converter";
-import useAxiosPubic from "@/hooks/useAxiosPubic";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import Lottie from "lottie-react";
-import Image from "next/image";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import React, { useState } from "react";
 import loading from "../../../../public/loading.json"
+import useService from "@/hooks/useService";
+
+
+
 const CardDetails = () => {
   const { id } = useParams();
-  const axiosPublic = useAxiosPubic()
-  // console.log(id)
+  const router = useRouter()
+  const {query} = router
+  
   const [DragOver, setDragOver] = useState(false);
   const [Drop, setDrop] = useState(false);
   const [File, setFile] = useState({});
-
-  const {
-    data: service = [],
-    isLoading,
-    isError,
-    error,
-  } = useQuery({
-    queryKey: ["service", id],
-    queryFn: async () => {
-      const res = await axiosPublic.get(`/services/${id}`);
-      return res.data;
-    },
-  });
-
+  const [service, isLoading, isError, error] = useService()
+  // console.log(service);
   if (isLoading) {
-    return <div className="w-1/2 flex mx-auto"><Lottie animationData={loading}></Lottie></div>
+    return (
+      <div className="w-1/2 flex mx-auto">
+        <Lottie animationData={loading}></Lottie>
+      </div>
+    );
   }
   if (isError) {
     console.log(error);
   }
+
+  
   // console.log(services.bgColor)
 
   const handelDragOver = (e) => {
@@ -58,11 +53,11 @@ const CardDetails = () => {
     setDrop("true");
     setFile(file);
   };
-  // console.log(File)
+  console.log(File)
   return (
     <div>
       {Drop == "true" ? (
-        <Converter File={File}></Converter>
+        <Converter File={File} conversionType={service.convTypes}></Converter>
       ) : (
         <div className="my-10 md:my-40">
           <h1 className="text-center font-bold text-2xl my-10 uppercase">
