@@ -1,19 +1,27 @@
-import { useQuery } from '@tanstack/react-query';
-import useAxiosPubic from './useAxiosPubic';
-import { useParams } from 'next/navigation';
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPubic from "./useAxiosPubic";
+import { useParams } from "next/navigation";
+
+
 
 const useService = () => {
-    const id = useParams()
-    const axiosPublic = useAxiosPubic();
-    const { data: service = []} = useQuery({
-        queryKey: ['service'],
-        queryFn: async () => {
-            const res = await axiosPublic.get(`/services/${id}`)
-            const data = await res.data;
-            return data;
-        }
-    })
-    return [service]
+  const {id} = useParams();
+  // console.log(id);
+  const axiosPublic = useAxiosPubic();
+  const {
+    data: service = [],
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["service", id],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/services/${id}`);
+      return res.data;
+    },
+  });
+  
+  return [service, isLoading, isError, error];
 };
 
 export default useService;
