@@ -11,8 +11,8 @@ import useService from "@/hooks/useService";
 const CardDetails = () => {
   const { id } = useParams();
   const router = useRouter()
-  const {query} = router
-  
+  const { query } = router
+
   const [DragOver, setDragOver] = useState(false);
   const [Drop, setDrop] = useState(false);
   const [File, setFile] = useState({});
@@ -29,7 +29,7 @@ const CardDetails = () => {
     console.log(error);
   }
 
-  
+
   // console.log(services.bgColor)
 
   const handelDragOver = (e) => {
@@ -55,11 +55,11 @@ const CardDetails = () => {
   };
   console.log(File)
   return (
-    <div>
+    <div className="h-screen">
       {Drop == "true" ? (
         <Converter File={File} conversionType={service.convTypes}></Converter>
       ) : (
-        <div className="my-10 md:my-40">
+        <div className="my-10 md:my-20">
           <h1 className="text-center font-bold text-2xl my-10 uppercase">
             {service.name}
           </h1>
@@ -67,11 +67,10 @@ const CardDetails = () => {
             onDragOver={(e) => handelDragOver(e)}
             onDragLeave={(e) => handelDragLeave(e)}
             onDrop={(e) => handelDrop(e)}
-            className={`w-[70%] mx-auto ${service.bgColor} ${
-              DragOver == "true"
-                ? "border-solid border-black bg-orange-500 border-2 rounded-md"
-                : " border-dashed border-2 bg-slate-200 rounded-md  border-black"
-            }   h-[300px]
+            className={`w-[70%] mx-auto  ${DragOver == "true"
+              ? "border-solid border-black bg-orange-500 border-2 rounded-md"
+              : " border-dashed border-2 bg-slate-200 rounded-md  border-black"
+              }   h-[300px]
                          md:h-[250px] grid justify-center items-center p-1
                           `}
           >
@@ -85,11 +84,12 @@ const CardDetails = () => {
 
                 {/* <div className="divider p-0 m-0">OR</div> */}
                 <h1 className="text-center">
-                  <span>
+                  <span className="dark:text-black">
                     {DragOver == "true" ? "Drop Your File" : " Drug & Drop"}
+                    <br />
+                    or
                   </span>
-                  <br />
-                  or
+
                   <label for="input">
                     <input
                       onChange={(e) => handelBrowser(e)}

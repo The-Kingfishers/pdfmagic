@@ -17,18 +17,20 @@ const Converter = ({ File, conversionType }) => {
         console.log(data);
     }
     fileReader.readAsDataURL(file)
-
+    console.log(conversionType)
     switch (conversionType) {
+
         case "wordtopdf":
             return <WordToPdf />
         case "jpgtopdf":
-        return <JpgToPdf url={url} />
+            return <JpgToPdf url={url} />
+
     }
 
 };
 
 export default Converter;
-{/* <embed src={url} type="application/pdf" width="100%" height="600px" /> */}
+{/* <embed src={url} type="application/pdf" width="100%" height="600px" /> */ }
 
 {/* <Image
     src={url}
