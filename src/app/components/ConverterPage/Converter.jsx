@@ -25,34 +25,35 @@ const Converter = ({ File, conversionType }) => {
         console.log(data);
     }
     fileReader.readAsDataURL(file)
-
+    console.log(conversionType)
     switch (conversionType) {
+
         case "wordtopdf":
             return <WordToPdf />
         case "jpgtopdf":
-        return <JpgToPdf url={url} />
+            return <JpgToPdf url={url} />
         case "mergePdf":
-        return <MergePdf url={url} />
+            return <MergePdf url={url} />
         case "PdfToPowerPoint":
-        return <PdfToPowerPoint url={url} />
+            return <PdfToPowerPoint url={url} />
         case "pageNumbering":
-        return <PageNumbering url={url} />
+            return <PageNumbering url={url} />
         case "pdf2Word":
-        return <Pdf2Word url={url} />
+            return <Pdf2Word url={url} />
         case "pdf2Excel":
-        return <Pdf2Excel url={url} />
+            return <Pdf2Excel url={url} />
         case "excel2Pdf":
-        return <Excel2Pdf url={url} />
+            return <Excel2Pdf url={url} />
         case "pdf2Jpg":
-        return <Pdf2Jpg url={url} />
+            return <Pdf2Jpg url={url} />
         case "sign2Pdf":
-        return <Sign2Pdf url={url} />
+            return <Sign2Pdf url={url} />
     }
 
 };
 
 export default Converter;
-{/* <embed src={url} type="application/pdf" width="100%" height="600px" /> */}
+{/* <embed src={url} type="application/pdf" width="100%" height="600px" /> */ }
 
 {/* <Image
     src={url}
