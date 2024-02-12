@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import React, { useState } from "react";
 import loading from "../../../../public/loading.json"
 import useService from "@/hooks/useService";
+import Input from "@/app/components/input/Input";
 
 
 
@@ -54,6 +55,10 @@ const CardDetails = () => {
     setFile(file);
   };
   console.log(File)
+
+
+
+
   return (
     <div className="h-screen">
       {Drop == "true" ? (
@@ -91,12 +96,33 @@ const CardDetails = () => {
                   </span>
 
                   <label for="input">
-                    <input
-                      onChange={(e) => handelBrowser(e)}
-                      id="input"
-                      type="file"
-                      className=" hidden"
-                    />
+
+                    {
+                      service.convTypes === "wordtopdf"
+                        ? <Input accept=".pdf"></Input>
+                        : service.convTypes === "jpgtopdf"
+                          ? <Input accept=".jpg"></Input>
+                          : service.convTypes === "mergePdf"
+                            ? <Input accept=".pdf" multiple></Input>
+                            : service.convTypes === "PdfToPowerPoint"
+                              ? <Input accept=".pdf" ></Input>
+                              : service.convTypes === "pageNumbering"
+                                ? <Input accept=".pdf" ></Input>
+                                : service.convTypes === "pdf2Word"
+                                  ? <Input accept=".pdf" ></Input>
+                                  : service.convTypes === "pdf2Excel"
+                                    ? <Input accept=".pdf" ></Input>
+                                    : service.convTypes === "excel2Pdf"
+                                      ? <Input accept=".pdf" ></Input>
+                                      : service.convTypes === "Pdf2Jpg"
+                                        ? <Input accept=".pdf" ></Input>
+                                        : service.convTypes === "sign2Pdf"
+                                          ? <Input accept=".pdf" ></Input>
+                                          : <Input />
+
+                    }
+
+
                     <span className="text-bold text-xl mx-2 text-blue-700 cursor-pointer">
                       Browser
                     </span>
