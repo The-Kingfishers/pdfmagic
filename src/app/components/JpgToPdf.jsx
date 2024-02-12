@@ -1,7 +1,20 @@
 import Image from 'next/image';
+import { redirect } from 'next/navigation';
 import React from 'react';
+import Swal from 'sweetalert2';
 
-const JpgToPdf = ({url}) => {
+const JpgToPdf = ({url, type}) => {
+    console.log(type);
+    console.log(url);
+        // if (type !== "image/jpeg") {
+        //     Swal.fire({
+        //         icon: 'error',
+        //         title: 'Invalid File Type',
+        //         text: 'Please upload a valid image for conversion.',
+        //     });
+        //     redirect("/services");
+        // }
+    
     const handleConvertJpg2pdf = () => {
         
     }
@@ -24,3 +37,13 @@ const JpgToPdf = ({url}) => {
 };
 
 export default JpgToPdf;
+
+
+// if (/^image\/jpeg$/i.test(type)) {
+//     Swal.fire({
+//         icon: 'error',
+//         title: 'Invalid File Type',
+//         text: 'Please upload a valid image for conversion.',
+//     });
+//     redirect("/services");
+// }
