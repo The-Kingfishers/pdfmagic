@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import { MdDashboard, MdHelp, MdPeople, MdHome, MdSettings, MdMan, MdSupervisedUserCircle, MdAdminPanelSettings } from 'react-icons/md';
+import { MdDashboard, MdHelp, MdPeople, MdHome, MdSettings, MdMan, MdSupervisedUserCircle, MdAdminPanelSettings, MdFeedback } from 'react-icons/md';
 import MenuLink from './MenuLink/MenuLink';
 import Image from 'next/image';
 import profileImg from "../../../../../../public/account_circle_FILL0_wght400_GRAD0_opsz24.svg"
@@ -27,6 +27,11 @@ const menuItems = [
                 title: "Help",
                 path: "/dashboard/help",
                 icon: <MdHelp/>
+            },
+            {
+                title: "FeedBack",
+                path: "/dashboard/feedback",
+                icon: <MdFeedback/>
             },
         ]
     },

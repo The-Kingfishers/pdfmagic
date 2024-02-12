@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 import { useState } from "react";
 import JpgToPdf from "../JpgToPdf";
 import WordToPdf from "../WordToPdf";
@@ -12,27 +12,36 @@ import Pdf2Excel from "../Pdf2Excel";
 import Excel2Pdf from "../Excel2Pdf";
 import Pdf2Jpg from "../Pdf2Jpg";
 import Sign2Pdf from "../Sign2Pdf";
+import Swal from "sweetalert2";
 
 const Converter = ({ File, conversionType }) => {
-    console.log(conversionType);
+    // console.log(conversionType);
     const file = File[0]
     const [url, seturl] = useState({})
+    const [fileType, setFiletype] = useState()
+    console.log(fileType);
+
     const fileReader = new FileReader()
     fileReader.onload = (e) => {
         e.preventDefault()
         const data = fileReader.result
+        const type = data.split(",")[0].split(":")[1].split(";")[0]
         seturl(data)
-        console.log(data);
+        // console.log(data);
+        setFiletype(type);
+        // console.log(type);
     }
     fileReader.readAsDataURL(file)
+
+
 
     switch (conversionType) {
         case "wordtopdf":
             return <WordToPdf />
         case "jpgtopdf":
-        return <JpgToPdf url={url} />
+        return <JpgToPdf url={url} type={fileType} />
         case "mergePdf":
-        return <MergePdf url={url} />
+        return <MergePdf url={url}  />
         case "PdfToPowerPoint":
         return <PdfToPowerPoint url={url} />
         case "pageNumbering":

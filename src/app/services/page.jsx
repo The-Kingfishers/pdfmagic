@@ -4,11 +4,23 @@ import useServices from "@/hooks/useServices";
 import ServicesCard from "./servicesCard/ServicesCard";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import Lottie from "lottie-react";
+import loading from "../../../public/loading.json"
 const Services = () => {
-  const [services] = useServices();
+  const [services, isLoading, isError, error] = useServices();
   // console.log(services);
   const location = usePathname();
+
+  if (isLoading) {
+    return (
+      <div className="w-1/2 flex mx-auto">
+        <Lottie animationData={loading}></Lottie>
+      </div>
+    );
+  }
+  if (isError) {
+    console.log(error);
+  }
   return (
     <div>
       <h1
