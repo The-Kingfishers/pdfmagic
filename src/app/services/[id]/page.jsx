@@ -99,26 +99,26 @@ const CardDetails = () => {
 
                     {
                       service.convTypes === "wordtopdf"
-                        ? <Input accept=".pdf"></Input>
+                        ? <Input onChange={(e) => handelBrowser(e)} accept=".pdf"></Input>
                         : service.convTypes === "jpgtopdf"
-                          ? <Input accept=".jpg"></Input>
+                          ? <Input onChange={(e) => handelBrowser(e)} accept=".jpg"></Input>
                           : service.convTypes === "mergePdf"
-                            ? <Input accept=".pdf" multiple></Input>
+                            ? <Input onChange={(e) => handelBrowser(e)} accept=".pdf" multiple></Input>
                             : service.convTypes === "PdfToPowerPoint"
-                              ? <Input accept=".pdf" ></Input>
+                              ? <Input onChange={(e) => handelBrowser(e)} accept=".pdf" ></Input>
                               : service.convTypes === "pageNumbering"
-                                ? <Input accept=".pdf" ></Input>
+                                ? <Input onChange={(e) => handelBrowser(e)} accept=".pdf" ></Input>
                                 : service.convTypes === "pdf2Word"
-                                  ? <Input accept=".pdf" ></Input>
+                                  ? <Input onChange={(e) => handelBrowser(e)} accept=".pdf" ></Input>
                                   : service.convTypes === "pdf2Excel"
-                                    ? <Input accept=".pdf" ></Input>
+                                    ? <Input onChange={(e) => handelBrowser(e)} accept=".pdf" ></Input>
                                     : service.convTypes === "excel2Pdf"
-                                      ? <Input accept=".pdf" ></Input>
+                                      ? <Input onChange={(e) => handelBrowser(e)} accept=".pdf" ></Input>
                                       : service.convTypes === "Pdf2Jpg"
-                                        ? <Input accept=".pdf" ></Input>
+                                        ? <Input onChange={(e) => handelBrowser(e)} accept=".pdf" ></Input>
                                         : service.convTypes === "sign2Pdf"
-                                          ? <Input accept=".pdf" ></Input>
-                                          : <Input />
+                                          ? <Input onChange={(e) => handelBrowser(e)} accept=".pdf" ></Input>
+                                          : <Input onChange={(e) => handelBrowser(e)} />
 
                     }
 

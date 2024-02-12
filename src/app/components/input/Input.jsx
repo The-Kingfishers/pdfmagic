@@ -4,7 +4,7 @@ const Input = ({ ...props }) => {
     return (
         <div>
             <input
-                onChange={(e) => handelBrowser(e)}
+
                 id="input"
                 type="file"
                 className=" hidden"
