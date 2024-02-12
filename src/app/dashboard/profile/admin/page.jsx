@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react';
 const AdminProfile = () => {
     const {data : session} = useSession()
     return (
-        <div className='text-black p-10 card dark:text-white shadow-xl w-11/12 mx-auto mt-10'>
+        <div className='text-white hover:shadow-2xl bg-[#2e374a] p-10 card dark:text-white shadow-xl w-11/12 mx-auto mt-10'>
             <div className=''>
                 <h2 className='font-semibold text-3xl mb-3'>My Profile</h2>
                 <div className='flex gap-7'>
