@@ -3,7 +3,7 @@ import { MdSupervisedUserCircle } from 'react-icons/md';
 
 const Card = () => {
     return (
-        <div className='text-black hover:shadow-2xl flex items-start dark:text-white p-10 card shadow-xl w-11/12 mx-auto mt-10'>
+        <div className='text-black hover:shadow-2xl bg-customDarkBlue text-white flex items-start dark:text-white p-10 card shadow-xl w-11/12 mx-auto mt-10'>
             <span className='text-2xl'><MdSupervisedUserCircle /></span>
             <div className='flex flex-col'>
                 <span>Total Users</span>

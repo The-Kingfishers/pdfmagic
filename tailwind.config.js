@@ -14,8 +14,10 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        "customOrange": "#FF5800"
-      }
+        "customOrange": "#FC440C",
+        "customDarkBlue": "#2e374a",  
+        "customDarkNavy": "#182237",
+      },
     },
   },
   plugins: [require("daisyui")],

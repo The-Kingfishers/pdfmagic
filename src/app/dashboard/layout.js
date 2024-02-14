@@ -2,6 +2,7 @@ import React from 'react';
 import DashNav from '../components/ui/dashboard/DashNav/DashNav';
 import Sidebar from '../components/ui/dashboard/Sidebar/Sidebar';
 import DashFooter from '../components/ui/dashboard/DashFooter/DashFooter';
+import TanstackQueryProvider from '../TanstackQueryProvider';
 
 const DashboardLayout = ({children}) => {
     return (
@@ -11,9 +12,11 @@ const DashboardLayout = ({children}) => {
                 {/* menu */}
             <Sidebar />
             </div>
-            <div className='content dark:text-white col-span-4'>
+            <div className='content dark:text-white  col-span-4'>
                 <DashNav />
+                <TanstackQueryProvider>
                 {children}
+                </TanstackQueryProvider>
                 <DashFooter />
             </div>
         </div>
