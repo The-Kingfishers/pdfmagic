@@ -6,7 +6,7 @@ const ProfilePage = () => {
     const {data: session} = useSession()
     // console.log(session);
     return (
-        <div className='text-black dark:text-white p-10 card shadow-xl w-11/12 mx-auto mt-10'>
+        <div className='text-black hover:shadow-2xl dark:text-white p-10 card shadow-xl w-11/12 mx-auto mt-10'>
         <div className=''>
             <h2 className='font-semibold text-3xl mb-3'>My Profile</h2>
             <div className='flex gap-7'>

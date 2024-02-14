@@ -60,7 +60,7 @@ const LoginPage = () => {
     await Swal.fire({
       position: "top-center",
       icon: "success",
-      title: "User Logged in Successfully",
+      title: "Admin Logged in Successfully",
       showConfirmButton: false,
       timer: 1500,
     })
@@ -119,7 +119,7 @@ const LoginPage = () => {
                 <div className="mt-3">
                   <p>
                     You do not have an Account Please
-                    <Link href="/register" className="text-sky-500 text-2xl">
+                    <Link href="/auth/new-user" className="text-sky-500 text-2xl">
                       Register
                     </Link>
                   </p>

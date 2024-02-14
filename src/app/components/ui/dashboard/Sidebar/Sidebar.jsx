@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import { MdDashboard, MdHelp, MdPeople, MdHome, MdSettings, MdMan, MdSupervisedUserCircle, MdAdminPanelSettings, MdFeedback } from 'react-icons/md';
+import { MdDashboard, MdHelp, MdPeople, MdHome, MdSettings, MdMan, MdSupervisedUserCircle, MdAdminPanelSettings, MdFeedback, MdFeaturedPlayList } from 'react-icons/md';
 import MenuLink from './MenuLink/MenuLink';
 import Image from 'next/image';
 import profileImg from "../../../../../../public/account_circle_FILL0_wght400_GRAD0_opsz24.svg"
@@ -17,6 +17,11 @@ const menuItems = [
                 title: "Profile",
                 path: "/dashboard/profile",
                 icon: <FaUser />
+            },
+            {
+                title: "Features",
+                path: "/dashboard/features",
+                icon: <MdFeaturedPlayList />
             },
             {
                 title: "Settings",
@@ -72,7 +77,7 @@ const Sidebar = () => {
                     <>
                     <li>
                         <span className='text-3xl'>Admin</span>
-                        <Link href="/dashboard/profile/admin" className={`flex  items-center ${pathName === "dashboard/admin" && "bg-[#2e374a]"} rounded-lg p-5 hover:bg-[#2e374a] text-white text-2xl`}> 
+                        <Link href="/dashboard/admin/profile" className={`flex  items-center ${pathName === "dashboard/admin" && "bg-[#2e374a]"} rounded-lg p-5 hover:bg-[#2e374a] text-white text-2xl`}> 
                             <FaUser />
                              Profile
                         </Link>
@@ -84,9 +89,15 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/dashboard/users" className={`flex items-center ${pathName === "dashboard/users" && "bg-[#2e374a]"} rounded-lg p-5 hover:bg-[#2e374a] text-white text-2xl`}> 
+                        <Link href="/dashboard/admin/users" className={`flex items-center ${pathName === "dashboard/users" && "bg-[#2e374a]"} rounded-lg p-5 hover:bg-[#2e374a] text-white text-2xl`}> 
                             <MdPeople />
                             Users
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/dashboard/admin/features" className={`flex items-center ${pathName === "dashboard/features" && "bg-[#2e374a]"} rounded-lg p-5 hover:bg-[#2e374a] text-white text-2xl`}> 
+                            <MdFeaturedPlayList />
+                            Features
                         </Link>
                     </li>
                     </>
@@ -100,8 +111,8 @@ const Sidebar = () => {
                     </li>
                    ))}
 
-                <li className='flex items-center text-2xl pl-4 rounded-lg h-20 hover:bg-[#2e374a]'>
-                    <Link className='flex' href={"/api/auth/signout?callbackUrl=/"}><span><FaSignOutAlt /></span> Log Out</Link>
+                <li className='flex text-white items-center text-2xl pl-4 rounded-lg h-20 hover:bg-[#2e374a] '>
+                    <Link className='flex' href={"/auth/signout"}><span><FaSignOutAlt /></span> Log Out</Link>
                 </li>
                     </ul>
         </div>

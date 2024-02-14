@@ -80,7 +80,9 @@ export const options = {
 
   ],
   pages: {
-    signIn:"/auth/signIn"
+    signIn:"/auth/signIn",
+    newUser: '/auth/new-user',
+    // signout: "/auth/signout"
   },
   
   callbacks: {

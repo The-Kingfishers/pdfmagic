@@ -6,6 +6,6 @@ import { NextResponse } from "next/server"
 export async function GET() {
 
     await mongoose.connect(connectionToDb)
-    const data = await Service.find()
-    return NextResponse.json(data)
+    const services = await Service.find()
+    return NextResponse.json(services)
 }

@@ -17,6 +17,7 @@ export async function POST(req) {
         if (duplicate) {
             return NextResponse.json({ message: 'Duplicate Email' }, { status: 409 })
         }
+        // converting password into hash password
         const hashPassword = await bcrypt.hash(userData.password, 10)
         userData.password = hashPassword
 
@@ -29,3 +30,18 @@ export async function POST(req) {
         return NextResponse.json({ message: "Error", error }, { status: 500 })
     }
 }
+
+
+export async function GET(req) {
+    try {
+        // Fetch all users
+        const users = await User.find();
+        return NextResponse.json( users );
+
+    } catch (error) {
+        console.error(error);
+        return NextResponse.json({ message: "Error", error }, { status: 500 });
+    }
+}
+
+
