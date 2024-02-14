@@ -1,22 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPubic from "./useAxiosPubic";
 
-const useServices = () => {
-  const axiosPublic = useAxiosPubic();
+const useUsers = () => {
+    const axiosPublic = useAxiosPubic();
   const {
-    data: services = [],
+    data: users = [],
     isLoading,
     isError,
     error,
   } = useQuery({
-    queryKey: ["services"],
+    queryKey: ["users"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/services");
+      const res = await axiosPublic.get("/users");
       const data = await res.data;
       return data;
     },
   });
-  return [services, isLoading, isError, error];
+  return [users, isLoading, isError, error];
 };
 
-export default useServices;
+export default useUsers;
