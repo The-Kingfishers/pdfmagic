@@ -3,7 +3,7 @@ import React from 'react';
 
 const JpgToPdf = ({ url }) => {
     const handleConvertJpg2pdf = () => {
-        
+
     }
     return (
         <div className=" md:flex  h-screen ">
@@ -16,7 +16,7 @@ const JpgToPdf = ({ url }) => {
             </div>
             <div className="md:w-1/3 border-x-2">
                 <div className="  text-center ">
-                    <button  className="btn mt-[70vh] bg-slate-800 text-white w-40 rounded-md  ">Convert 2 PDF</button>
+                    <button className="btn mt-[70vh] bg-slate-800 text-white w-40 rounded-md  ">Convert 2 PDF</button>
                 </div>
             </div>
         </div>

@@ -113,7 +113,7 @@ const CardDetails = () => {
                                   : service.convTypes === "pdf2Excel"
                                     ? <Input onChange={(e) => handelBrowser(e)} accept=".pdf" ></Input>
                                     : service.convTypes === "excel2Pdf"
-                                      ? <Input onChange={(e) => handelBrowser(e)} accept=".pdf" ></Input>
+                                      ? <Input onChange={(e) => handelBrowser(e)} accept=".xlsx" ></Input>
                                       : service.convTypes === "Pdf2Jpg"
                                         ? <Input onChange={(e) => handelBrowser(e)} accept=".pdf" ></Input>
                                         : service.convTypes === "sign2Pdf"

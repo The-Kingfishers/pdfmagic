@@ -23,18 +23,17 @@ const Converter = ({ File, conversionType }) => {
         e.preventDefault()
         const data = fileReader.result
         seturl(data)
-        console.log(data);
+        // console.log(data);
     }
     fileReader.readAsDataURL(file)
-    console.log(conversionType)
-    switch (conversionType) {
 
+    switch (conversionType) {
         case "wordtopdf":
             return <WordToPdf />
         case "jpgtopdf":
             return <JpgToPdf url={url} />
         case "mergePdf":
-            return <MergePdf url={url} />
+            return <MergePdf File={File} url={url} />
         case "PdfToPowerPoint":
             return <PdfToPowerPoint url={url} />
         case "pageNumbering":
@@ -44,7 +43,7 @@ const Converter = ({ File, conversionType }) => {
         case "pdf2Excel":
             return <Pdf2Excel url={url} />
         case "excel2Pdf":
-            return <Excel2Pdf url={url} />
+            return <Excel2Pdf file={File} />
         case "pdf2Jpg":
             return <Pdf2Jpg url={url} />
         case "sign2Pdf":
